@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>[Jamira Hakim] — Professional Portfolio</title>
+	<meta name="description" content="Professional portfolio of [Jamira Hakim].">
+	<style>
+		/* Inline / internal CSS: formal, clean, responsive */
+		:root{ --bg:#f7f9fc; --card:#ffffff; --text:#0f1721; --muted:#6b7280; --accent:#0b61d6; --radius:10px }
+		*{box-sizing:border-box}
+		html,body{height:100%}
+		body{font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased}
+		a{color:var(--accent); text-decoration:none}
+		.wrap{max-width:1000px; margin:28px auto; padding:24px}
+
+		/* Header */
+		header.site-header{background:var(--card); border-radius:var(--radius); padding:20px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; box-shadow:0 6px 18px rgba(15,23,33,0.06)}
+		.brand h1{font-size:1.25rem; margin:0; font-weight:700}
+		.brand p{margin:2px 0 0; color:var(--muted); font-size:0.95rem}
+		nav.main-nav a{margin-left:18px; font-weight:600; color:var(--muted)}
+		nav.main-nav a:hover{color:var(--accent)}
+
+		/* Hero */
+		.hero{display:grid; grid-template-columns: 1fr 300px; gap:28px; align-items:center; margin-top:20px}
+		.hero .title{font-size:1.6rem; margin:0 0 8px; font-weight:700}
+		.hero .subtitle{color:var(--muted); margin-bottom:16px}
+		.cta{display:flex; gap:12px}
+		.btn{display:inline-block;padding:10px 14px;border-radius:8px;border:1px solid transparent;font-weight:600}
+		.btn-primary{background:var(--accent); color:#fff}
+		.btn-outline{background:transparent;border-color:#dbeafe;color:var(--accent)}
+		.hero-card{background:linear-gradient(180deg,#fff,#fbfdff); border-radius:12px; height:220px; border:1px solid #eef6ff}
+
+		/* Sections */
+		section.card{background:var(--card); border-radius:var(--radius); padding:18px; margin-top:18px; box-shadow:0 6px 18px rgba(15,23,33,0.04)}
+		.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+		h2{margin:0 0 12px; font-size:1.15rem}
+		p.lead{color:var(--muted); margin:0 0 12px}
+
+		/* Projects */
+		.projects{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+		.project{background:#f8fbff; padding:12px; border-radius:10px; border:1px solid #eef6ff}
+		.project h3{margin:0 0 6px; font-size:1rem}
+		.project p{margin:0; color:var(--muted); font-size:0.95rem}
+
+		/* Timeline */
+		.timeline{display:grid; gap:12px}
+		.timeline-item{padding:12px; border-radius:8px; background:#fff; border:1px solid #eef2f8}
+		.muted{color:var(--muted)}
+
+		/* Footer */
+		footer{margin-top:22px; text-align:center; color:var(--muted); font-size:0.95rem}
+
+		/* Responsive */
+		@media (max-width:880px){
+			.hero{grid-template-columns:1fr}
+			.projects{grid-template-columns:repeat(2,1fr)}
+			nav.main-nav{display:none}
+		}
+		@media (max-width:520px){
+			.projects{grid-template-columns:1fr}
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<header class="site-header">
+			<div class="brand">
+				<h1>Jamira Hakim</h1>
+				<p>Software Engineer • Web Developer</p>
+			</div>
+			<nav class="main-nav" aria-label="Primary navigation">
+				<a href="#home">Home</a>
+				<a href="#about">About</a>
+				<a href="#projects">Projects</a>
+				<a href="#experience">Experience</a>
+				<a href="#contact">Contact</a>
+			</nav>
+		</header>
+
+		<main>
+			<section id="home" class="hero">
+				<div>
+					<h2 class="title">Professional, focused, results-driven.</h2>
+					<p class="subtitle">I design and build accessible, maintainable web applications with attention to user experience and performance. I specialize in front-end engineering and full-stack development.</p>
+					<div class="cta">
+						<a class="btn btn-primary" href="#projects">View Projects</a>
+						<a class="btn btn-outline" href="#contact">Contact Me</a>
+					</div>
+				</div>
+				<div class="hero-card" aria-hidden="true">
+					<!-- Add a photo or illustration here: replace this div with an <img> if desired -->
+				</div>
+			</section>
+
+			<section id="about" class="card">
+				<h2>About</h2>
+				<p class="lead">I am <strong>Jamira Hakim</strong>, an engineer with 2 years of experience building web applications. I focus on clear code, thoughtful interfaces, and measurable impact.</p>
+				<div class="grid-2">
+					<div>
+						<h3>Core Skills</h3>
+						<ul>
+							<li class="muted">HTML5, CSS3 (Flexbox, Grid)</li>
+							<li class="muted">JavaScript (ES6+), TypeScript</li>
+							<li class="muted">React, Next.js</li>
+							<li class="muted">Node.js, REST APIs</li>
+						</ul>
+					</div>
+					<div>
+						<h3>Profile</h3>
+						<p class="muted">I enjoy collaborating across teams to deliver products that users love. I care about accessibility, performance, and maintainability.</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="projects" class="card">
+				<h2>Selected Projects</h2>
+				<div class="projects" style="margin-top:12px">
+					<article class="project">
+						<h3>Project One</h3>
+						<p>Nyumba Flex is a "Rent-Now-Pay-Later" fintech platform that pays a tenant's six-month upfront rent to the landlord, allowing the tenant to repay the balance plus interest in monthly installments. Built with HTML5, CSS3, and JavaScript for the interactive calculator and front-end logic, and integrated with Firebase or SQL for database management, it simplifies housing access through automated financial scheduling.</p>
+					</article>
+					<article class="project">
+						<h3>Project Two</h3>
+						<p>The Artisan Market is a specialized e-commerce platform designed to connect local craftspeople with customers seeking unique, handmade goods. Built using HTML5 and CSS3 to create a visually appealing, gallery-style storefront and JavaScript to manage interactive features like product filtering and shopping cart logic, the project serves as a digital bridge for creators who lack traditional retail space. By integrating a database to track inventory and artisan profiles, it transforms local craftsmanship into a professional online business, focusing on authenticity and direct-to-consumer sales.</p>
+					</article>
+					<article class="project">
+				</div>
+			</section>
+
+			<section id="experience" class="card">
+				<h2>Experience</h2>
+				<div class="timeline" style="margin-top:12px">
+					
+					<div class="timeline-item">
+						<strong>Frontend Engineer — HPV Company</strong>
+						<div class="muted">2023 — 2024</div>
+						<p class="muted">Built responsive interfaces and improved accessibility across product lines.</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="contact" class="card">
+				<h2>Contact</h2>
+				<p class="muted">For opportunities or collaboration, email me at <a href="mailto:youremail@example.com">jamirahakim05@gmail.com</a> or connect on <a href="#">LinkedIn</a> / <a href="#">GitHub</a>.</p>
+			
+			</section>
+		</main>
+
+		<footer>
+			<p>&copy; <span id="yr"></span>Jamira Hakim. All rights reserved.</p>
+		</footer>
+	</div>
+
+	<script>
+		// set footer year
+		document.getElementById('yr').textContent = new Date().getFullYear();
+	</script>
+</body>
+</html>
