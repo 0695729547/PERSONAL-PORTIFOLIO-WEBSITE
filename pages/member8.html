@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asia Ibrahim Mtumwa - Creative Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d14d8f;
+            --primary-light: #f5b5d1;
+            --primary-dark: #b83280;
+            --secondary: #a78bfa;
+            --accent: #f9a8d4;
+            --light-bg: #fff5f7;
+            --dark-bg: #1a1625;
+            --card-bg: #ffffff;
+            --text: #4a4453;
+            --text-light: #7a7280;
+            --text-dark: #2d2a32;
+            --shadow: rgba(209, 77, 143, 0.1);
+            --glass: rgba(255, 255, 255, 0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #fce7f3 100%);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(120deg, rgba(209, 77, 143, 0.15) 0%, rgba(167, 139, 250, 0.1) 100%);
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f9a8d4' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: -1;
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px rgba(209, 77, 143, 0.3);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .profile-decoration {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 2px dashed var(--primary-light);
+            top: -15px;
+            left: -15px;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        header .tagline {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: rgba(249, 168, 212, 0.3);
+            z-index: -1;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+        }
+
+        /* Section Cards */
+        section {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            padding: 2.2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(209, 77, 143, 0.15);
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 20px 0 0 20px;
+        }
+
+        section h2 {
+            margin: 0 0 1.5rem 0;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            position: relative;
+        }
+
+        section h2 i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-item:hover {
+            background: linear-gradient(135deg, #fff5f7, white);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(209, 77, 143, 0.15);
+        }
+
+        .skill-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(249, 168, 212, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Education & Experience */
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            border-left: 3px solid var(--primary-light);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--primary);
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .timeline-meta {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-meta i {
+            color: var(--secondary);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 18px;
+            padding: 1.8rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(209, 77, 143, 0.15);
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .project-title i {
+            color: var(--primary);
+        }
+
+        .project-desc {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(249, 168, 212, 0.2);
+            color: var(--primary-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(209, 77, 143, 0.2);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.2rem;
+            border-radius: 15px;
+            background: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-item:hover {
+            background: linear-gradient(135deg, #fff5f7, white);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.4rem;
+            box-shadow: 0 5px 15px rgba(209, 77, 143, 0.3);
+        }
+
+        .contact-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary-dark);
+        }
+
+        .contact-details p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 4rem 0 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(209, 77, 143, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(209, 77, 143, 0.3);
+        }
+
+        /* Flower decoration */
+        .flower {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        .flower-1 {
+            top: 10%;
+            left: 5%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .flower-2 {
+            top: 20%;
+            right: 8%;
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        .flower-3 {
+            bottom: 15%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            }
+            
+            section {
+                padding: 1.8rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 3rem 1rem 2rem;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                font-size: 2.8rem;
+            }
+            
+            .profile-decoration {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative flowers -->
+    <div class="flower flower-1"></div>
+    <div class="flower flower-2"></div>
+    <div class="flower flower-3"></div>
+    
+    <header>
+        <div class="header-content">
+            <div class="profile-container">
+                <div class="profile-decoration"></div>
+                <div class="profile-img">
+                    AI
+                </div>
+            </div>
+            <h1>Asia Ibrahim Mtumwa</h1>
+            <p class="tagline">Creative Developer & <span class="highlight">UI/UX Designer</span></p>
+            <p>Crafting beautiful digital experiences with purpose and passion</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- About Section -->
+        <section>
+            <h2><i class="fas fa-heart"></i> About Me</h2>
+            <p>
+                Hello! I'm Asia, a creative developer and UI/UX designer with a passion for building beautiful, user-centered digital experiences. I believe in the power of design to solve problems and create meaningful connections.
+            </p>
+            <p>
+                My approach blends technical expertise with artistic sensibility, ensuring that every project is not only functional but also visually captivating. I'm particularly interested in creating inclusive designs that work for everyone.
+            </p>
+            <p>
+                When I'm not coding or designing, you can find me painting, reading design blogs, or exploring new coffee shops in my city.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2><i class="fas fa-magic"></i> My Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <span>UI/UX Design</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <span>Frontend Development</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <span>Responsive Design</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <span>Visual Design</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <span>Figma & Prototyping</span>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <span>User Research</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Experience -->
+        <section>
+            <h2><i class="fas fa-graduation-cap"></i> Journey & Education</h2>
+            <div class="timeline-item">
+                <div class="timeline-title">BSc. Computer Science & Design</div>
+                <div class="timeline-meta">
+                    <i class="fas fa-university"></i>
+                    University of Dar-es-salaam,
+                    | 2021 - Present
+                </div>
+                <p>Specializing in human-computer interaction and creative technologies. President of the University's Women in Tech club.</p>
+            </div>
+            <div class="timeline-item">git clone
+                <div class="timeline-title">UI/UX Design Intern</div>
+                <div class="timeline-meta">
+                    <i class="fas fa-briefcase"></i>
+                    Bloom Digital Agency | Summer 2023
+                </div>
+                <p>Designed mobile app interfaces for health and wellness startups. Conducted user testing sessions and created comprehensive design systems.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">Freelance Designer & Developer</div>
+                <div class="timeline-meta">
+                    <i class="fas fa-laptop"></i>
+                    Self-Employed | 2020 - Present
+                </div>
+                <p>Created beautiful websites and brand identities for female entrepreneurs and small businesses, with a focus on accessibility and aesthetics.</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section>
+            <h2><i class="fas fa-star"></i> Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">
+                        Bloom Wellness App
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="project-desc">
+                        A mindfulness and self-care application designed specifically for women, featuring guided meditations, mood tracking, and personalized wellness plans.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Illustrator</span>
+                        <span class="tech-tag">User Testing</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">
+                        SheCrafts Marketplace
+                        <i class="fas fa-store-alt"></i>
+                    </div>
+                    <div class="project-desc">
+                        An e-commerce platform showcasing handmade products by women artisans. Features include story-based product pages, community forums, and fair-trade analytics.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Stripe</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">
+                        EduGirl Learning Platform
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="project-desc">
+                        An interactive learning platform designed to make STEM education more accessible and engaging for young girls through gamification and mentorship features.
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">GSAP</span>
+                        <span class="tech-tag">Accessibility</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section>
+            <h2><i class="fas fa-paper-plane"></i> Let's Connect</h2>
+            <p>I'm always excited to collaborate on meaningful projects or discuss creative ideas. Feel free to reach out!</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>ceeribrah@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <p>+255 740 605 087</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Based In</h3>
+                        <p>Dar es salaam, Tanzania</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" aria-label="Behance">
+                <i class="fab fa-behance"></i>
+            </a>
+            <a href="#" aria-label="Dribbble">
+                <i class="fab fa-dribbble"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+        <p>&copy; 2025 Asia Ibrahim Mtumwa. All rights reserved.</p>
+        <p>Made with <i class="fas fa-heart" style="color: var(--primary);"></i> and creative energy</p>
+    </footer>
+
+    <script>
+        // Animation for elements on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillItems = document.querySelectorAll('.skill-item');
+            const projectCards = document.querySelectorAll('.project-card');
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Animate skill items
+            skillItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(item);
+            });
+            
+            // Animate project cards
+            projectCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transitionDelay = `${index * 0.1}s`;
+                card.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+                observer.observe(card);
+            });
+            
+            // Animate timeline items
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                item.style.transitionDelay = `${index * 0.15}s`;
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(item);
+            });
+            
+            // Add hover effect to contact items
+            const contactItems = document.querySelectorAll('.contact-item');
+            contactItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.contact-icon');
+                    icon.style.transform = 'scale(1.1) rotate(8deg)';
+                    icon.style.boxShadow = '0 8px 20px rgba(209, 77, 143, 0.4)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.contact-icon');
+                    icon.style.transform = 'scale(1) rotate(0)';
+                    icon.style.boxShadow = '0 5px 15px rgba(209, 77, 143, 0.3)';
+                });
+            });
+            
+            // Floating animation for decorative flowers
+            const flowers = document.querySelectorAll('.flower');
+            flowers.forEach(flower => {
+                flower.style.opacity = '0';
+                setTimeout(() => {
+                    flower.style.transition = 'opacity 1.5s ease';
+                    flower.style.opacity = '0.7';
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
